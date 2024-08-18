@@ -1,0 +1,19 @@
+{
+	"id": "hat",
+	"version": "1.0.0",
+	"name": "Hat",
+	"description": {
+		"en_us": "Equip the item in your hand on your head",
+		"zh_cn": "将手中的物品戴到头上"
+	},
+	"author": [
+		"shuangshun",
+		"Fallen_Breath"
+	],
+	"resources": [
+		"lang"
+	],
+	"dependencies": {
+		"minecraft_data_api": "*"
+	}
+}
