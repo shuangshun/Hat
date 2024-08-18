@@ -22,7 +22,7 @@
 
 ## 配置说明
 
-- `permission` 能够使用 `!!hat` 命令的最低权限等级
+- `permission` 设置能够使用 `!!hat` 命令的最低权限等级
 > 仅允许输入一个整数值, 详细请看 [权限概览](https://docs.mcdreforged.com/zh-cn/latest/permission.html#overview)
 
 ```json5
