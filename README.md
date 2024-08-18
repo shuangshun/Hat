@@ -1,9 +1,10 @@
+[![](https://socialify.git.ci/shuangshun/Hat/image?description=1&font=Raleway&forks=1&issues=1&language=1&name=1&owner=1&pattern=Circuit%20Board&pulls=1&stargazers=1&theme=Auto)](https://github.com/shuangshun/Hat)
+
 # Hat
 
-[![Issues](https://img.shields.io/github/issues/shuangshun/Hat?style=flat-square)](https://github.com/shuangshun/Hat/issues)
-[![Pull Requests](https://img.shields.io/github/issues-pr/shuangshun/Hat?style=flat-square)](https://github.com/shuangshun/Hat/pulls)
-[![Release](https://img.shields.io/github/v/release/shuangshun/Hat?include_prereleases&style=flat-square)](https://github.com/shuangshun/Hat/releases)
-[![Downloads](https://img.shields.io/github/downloads/shuangshun/Hat/total?label=Github%20Release%20Downloads&style=flat-square)](https://github.com/shuangshun/Hat/releases)
+[![](https://img.shields.io/github/v/release/shuangshun/Hat)](https://github.com/shuangshun/Hat/releases)
+[![](https://shields.io/github/downloads/shuangshun/Hat/total)](https://github.com/MrXiaoM/shuangshun/Hat)
+![https://github.com/shuangshun/Hat](https://img.shields.io/github/stars/shuangshun/Hat)
 
 提供一个命令 `!!here` , 允许玩家将手上的物品戴到头上
 
