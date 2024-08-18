@@ -6,7 +6,7 @@
 [![](https://shields.io/github/downloads/shuangshun/Hat/total)](https://github.com/MrXiaoM/shuangshun/Hat)
 ![https://github.com/shuangshun/Hat](https://img.shields.io/github/stars/shuangshun/Hat)
 
-提供一个命令 `!!here` , 允许玩家将手上的物品戴到头上
+提供一个命令 `!!hat` , 允许玩家将手上的物品戴到头上
 
 ------
 
@@ -18,11 +18,11 @@
 
 - 重启服务器或使用 `!!MCDR plugin reloadall` 命令重载所有插件
 
-- 在游戏内拿着任意物品输入 `!!here` 命令
+- 在游戏内拿着任意物品输入 `!!hat` 命令
 
 ## 配置说明
 
-- `permission` 能够使用 `!!here` 命令的最低权限等级
+- `permission` 能够使用 `!!hat` 命令的最低权限等级
 > 仅允许输入一个整数值, 详细请看 [权限概览](https://docs.mcdreforged.com/zh-cn/latest/permission.html#overview)
 
 ```json5
