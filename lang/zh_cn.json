@@ -1,7 +1,7 @@
 {
 	"hat.help": "将手中的物品戴到头上",
 	"hat.success": "你获得了新的帽子",
-	"hat.hand_is_empty": "手上的物品不能为空",
+	"hat.hand_is_empty": "手上不能为空",
 	"hat.use_in_player": "请以玩家身份执行",
 	"hat.required_permission": "权限不足"
 }

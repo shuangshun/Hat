@@ -29,12 +29,12 @@ def hat(server: ServerInterface, src: CommandSource):
                 head_slot_count = item.get('Count')
 
                 if 'tag' in item:
-                    head_slot_tag = str(parsing_head_slot_data(inventory)) + ' '
+                    head_slot_tag = str(parsing_head_slot_data(inventory))
 
                 else:
-                    head_slot_tag = ' '
+                    head_slot_tag = ''
 
-                server.execute(f'item replace entity {player_name} hotbar.{selected_item_slot} with {head_slot_id}{head_slot_tag}{head_slot_count}')
+                server.execute(f'item replace entity {player_name} hotbar.{selected_item_slot} with {head_slot_id}{head_slot_tag} {head_slot_count}')
                 break
         else:
             server.execute(f'item replace entity {player_name} hotbar.{selected_item_slot} with air')

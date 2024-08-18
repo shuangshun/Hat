@@ -1,7 +1,7 @@
 {
 	"hat.help": "Equip the item in your hand on your head",
 	"hat.success": "You have obtained a new hat",
-	"hat.hand_is_empty": "The item in hand cannot be empty",
+	"hat.hand_is_empty": "Hands cannot be empty",
 	"hat.use_in_player": "Please execute as a player",
 	"hat.required_permission": "Insufficient permission"
 }

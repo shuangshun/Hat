@@ -20,18 +20,11 @@ def parsing_head_slot_data(data):
     for item in data:
         if item.get('Slot') == 103:
             try:
-                tag = item.get('tag')
-
-                if tag is not None:
-                    head_slot_tag = convert_ordered_dict_to_dict(tag)
-                    return head_slot_tag
-
-                else:
-                    print("No 'tag' found in the item.")
-                    return None
+                head_slot_tag = convert_ordered_dict_to_dict(item.get('tag'))
+                return head_slot_tag
 
             except Exception as e:
-                print(f"Error during conversion: {e}")
+                print(f"Error in parsing process: {e}")
                 return None
 
     return None
