@@ -14,7 +14,7 @@
 
 - 安装前置 [Minecraft Data API](https://github.com/Fallen-Breath/MinecraftDataAPI)
 
-- 安装 [Releases](https://github.com/shuangshun/Hat/releases/latest) 中的最新发布版
+- 安装 [Releases](https://github.com/shuangshun/Hat/releases/latest) 中的最新发行版
 
 - 重启服务器或使用 `!!MCDR plugin reloadall` 命令重载所有插件
 
