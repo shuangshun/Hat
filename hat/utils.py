@@ -1,3 +1,5 @@
+import json
+
 from mcdreforged.api.all import *
 from collections import OrderedDict
 
@@ -16,15 +18,48 @@ def convert_ordered_dict_to_dict(data):
     else:
         return data
 
-def parsing_head_slot_data(data):
+def parsing_components(data):
+    def transform(obj, is_top_level=True):
+        if isinstance(obj, dict):
+            items = []
+            for key, value in obj.items():
+                new_value = transform(value, False)
+
+                if is_top_level:
+                   items.append(f"{key}={new_value}")
+
+                else:
+                    items.append(f"{key}:{new_value}")
+
+            return '{' + ', '.join(items) + '}'
+
+        elif isinstance(obj, list):
+            elements = [transform(item, False) for item in obj]
+            return '[' + ', '.join(elements) + ']'
+
+        else:
+            return str(obj)
+
+    transformed_data = transform(data)
+    head_slot_data = f'[{transformed_data[1:-1]}]'.replace('minecraft:', '')
+    head_slot_tag = json.dumps(head_slot_data, ensure_ascii=False)[1:-1]
+
+    return head_slot_tag
+
+def parsing_head_slot_data(data, type):
     for item in data:
         if item.get('Slot') == 103:
             try:
-                head_slot_tag = convert_ordered_dict_to_dict(item.get('tag'))
-                return head_slot_tag
+                if type == 'tag':
+                   head_slot_tag = convert_ordered_dict_to_dict(item.get(key))
+
+                elif type == 'components':
+                   head_slot_dict = convert_ordered_dict_to_dict(item.get(key))
+                   head_slot_tag = parsing_components(item.get(key))
+                   return head_slot_tag
 
             except Exception as e:
-                print(f"Error in parsing process: {e}")
+                raise RuntimeError(f"Error in parsing process: {e}") from e
                 return None
 
     return None

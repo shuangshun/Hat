@@ -25,13 +25,16 @@
 - `permission` 设置能够使用 `!!hat` 命令的最低权限等级
 > 仅允许输入一个整数值, 详细请看 [权限概览](https://docs.mcdreforged.com/zh-cn/latest/permission.html#overview)
 
+- `cooldown` 设置使用 `!!hat` 命令的冷却时间(以秒为单位)
+
 ```json5
 {
     "permission": 1 // 默认为 1 , 即普通玩家
+    "cooldown": 3 // 默认为 3 秒
 }
 ```
 
 ------
 
 > [!Note]
-> 注意! 本插件暂不兼容1.21之后的版本 (兼容正在进行中)
+> 注意! 本插件现已基本兼容1.21之后的版本
