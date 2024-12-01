@@ -51,11 +51,11 @@ def parsing_head_slot_data(data, type):
         if item.get('Slot') == 103:
             try:
                 if type == 'tag':
-                   head_slot_tag = convert_ordered_dict_to_dict(item.get(key))
+                   head_slot_tag = convert_ordered_dict_to_dict(item.get(type))
 
                 elif type == 'components':
-                   head_slot_dict = convert_ordered_dict_to_dict(item.get(key))
-                   head_slot_tag = parsing_components(item.get(key))
+                   head_slot_dict = convert_ordered_dict_to_dict(item.get(type))
+                   head_slot_tag = parsing_components(item.get(type))
                    return head_slot_tag
 
             except Exception as e:
