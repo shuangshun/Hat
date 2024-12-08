@@ -25,7 +25,7 @@
 - `permission` 设置能够使用 `!!hat` 命令的最低权限等级
 > 仅允许输入一个整数值, 详细请看 [权限概览](https://docs.mcdreforged.com/zh-cn/latest/permission.html#overview)
 
-- `cooldown` 设置使用 `!!hat` 命令的冷却时间(以秒为单位)
+- `cooldown` 设置使用 `!!hat` 命令的冷却时间(单位: 秒)
 
 ```json5
 {
