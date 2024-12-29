@@ -5,21 +5,17 @@ from mcdreforged.api.all import *
 from hat.config import *
 from hat.utils import *
 
-last_execution_time = {}
 
 @new_thread("Hat")
 def hat(server: ServerInterface, src: CommandSource):
+    last_execution_time = {}
+
     if isinstance(src, PlayerCommandSource):
         if not src.has_permission(config.permission):
-           src.reply(RText(tr('required_permission'), RColor.red))
-           return
+            src.reply(RText(tr('required_permission'), RColor.red))
+            return
 
         player_name = src.get_info().player
-        selected_item = api.get_player_info(player_name, 'SelectedItem', timeout=0.2)
-
-        if selected_item is None:
-            src.reply(RText(tr('hand_is_empty'), RColor.red))
-            return
 
         current_time = time.time()
         if player_name in last_execution_time and (current_time - last_execution_time[player_name]) < config.cooldown:
@@ -29,10 +25,17 @@ def hat(server: ServerInterface, src: CommandSource):
 
         last_execution_time[player_name] = current_time
 
+        selected_item = api.get_player_info(player_name, 'SelectedItem', timeout=0.2)
+
+        if selected_item is None:
+            src.reply(RText(tr('hand_is_empty'), RColor.red))
+            return
+
         inventory = api.get_player_info(player_name, 'Inventory')
         selected_item_slot = api.get_player_info(player_name, 'SelectedItemSlot')
 
-        server.execute(f'item replace entity {player_name} armor.head from entity {player_name} hotbar.{selected_item_slot}')
+        server.execute(
+            f'item replace entity {player_name} armor.head from entity {player_name} hotbar.{selected_item_slot}')
 
         for item in inventory:
             if item['Slot'] == 103:
@@ -45,10 +48,10 @@ def hat(server: ServerInterface, src: CommandSource):
                     head_slot_count = item.get('count')
 
                 if 'tag' in item:
-                    head_slot_tag = str(parsing_head_slot_data(inventory, 'tag'))
+                    head_slot_tag = str(parse_head_slot_data(inventory, 'tag'))
 
                 elif 'components' in item:
-                    head_slot_tag = str(parsing_head_slot_data(inventory, 'components'))
+                    head_slot_tag = str(parse_head_slot_data(inventory, 'components'))
 
                 else:
                     head_slot_tag = ''
@@ -63,6 +66,7 @@ def hat(server: ServerInterface, src: CommandSource):
     else:
         src.reply(RText(tr('use_in_player'), RColor.red))
 
+
 def register_commands_and_help(server: PluginServerInterface):
     server.register_command(
         Literal("!!hat")
@@ -74,9 +78,9 @@ def register_commands_and_help(server: PluginServerInterface):
         RText(tr('help'))
     )
 
+
 def on_load(server: ServerInterface, old):
     global config
     config = server.load_config_simple(ConfigFilePath, target_class=Config, in_data_folder=False)
 
     register_commands_and_help(server)
-    
