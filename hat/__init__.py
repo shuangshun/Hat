@@ -6,10 +6,9 @@ from hat.config import *
 from hat.utils import *
 
 
+last_execution_time = {}
 @new_thread("Hat")
 def hat(server: ServerInterface, src: CommandSource):
-    last_execution_time = {}
-
     if isinstance(src, PlayerCommandSource):
         if not src.has_permission(config.permission):
             src.reply(RText(tr('required_permission'), RColor.red))
