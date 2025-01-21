@@ -3,6 +3,7 @@
 	"hat.success": "You have obtained a new hat",
 	"hat.on_cooldown": "Cooling down...",
 	"hat.hand_is_empty": "Hands cannot be empty",
+	"hat.too_many_items": "Does not support stacking Shulker Boxes or Enchanted Books",
 	"hat.use_in_player": "Please execute as a player",
 	"hat.required_permission": "Insufficient permission"
 }

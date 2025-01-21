@@ -33,8 +33,20 @@ def hat(server: ServerInterface, src: CommandSource):
         inventory = api.get_player_info(player_name, 'Inventory')
         selected_item_slot = api.get_player_info(player_name, 'SelectedItemSlot')
 
-        server.execute(
-            f'item replace entity {player_name} armor.head from entity {player_name} hotbar.{selected_item_slot}')
+        for item in inventory:
+            if item['Slot'] == selected_item_slot:
+
+                if 'Count' in item:
+                    head_slot_count = item.get('Count')
+
+                else:
+                    head_slot_count = item.get('count')
+
+                if any(item_id in item.get('id') for item_id in ['shulker_box', 'enchanted_book']) and head_slot_count > 1:
+                    src.reply(RText(tr('too_many_items'), RColor.red))
+                    return
+
+        server.execute(f'item replace entity {player_name} armor.head from entity {player_name} hotbar.{selected_item_slot}')
 
         for item in inventory:
             if item['Slot'] == 103:
