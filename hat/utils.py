@@ -31,20 +31,20 @@ def parse_components(data):
             components = []
             for k, v in data.items():
                 if is_top_level and not is_top_level_key:
-                    components.append(f'{k}={json.dumps(v)}')
+                    components.append(f'{k}={json.dumps(v, ensure_ascii=False)}')
 
                 else:
-                    components.append(f'"{k}": {json.dumps(v)}')
+                    components.append(f'"{k}": {json.dumps(v, ensure_ascii=False)}')
             return '{' + ', '.join(components) + '}'
 
         elif isinstance(data, list):
-            return '[' + ', '.join(json.dumps(item) for item in data) + ']'
+            return '[' + ', '.join(json.dumps(item, ensure_ascii=False) for item in data) + ']'
 
         else:
             if isinstance(data, (int, float)):
                 return f'{data}'
 
-            return json.dumps(data)
+            return json.dumps(data, ensure_ascii=False)
 
     try:
         transformed_data = transform(data)
@@ -59,13 +59,12 @@ def parse_head_slot_data(data, type):
         if item.get('Slot') == 103:
             try:
                 value = item.get(type)
-                converted_dict = convert_ordered_dict_to_dict(value)
 
                 if type == 'tag':
-                    return converted_dict
+                    return convert_ordered_dict_to_dict(value)
 
                 elif type == 'components':
-                    return parse_components(converted_dict)
+                    return parse_components(value)
 
             except KeyError as e:
                 raise KeyError(f'Error in parsing process: {e}') from e
