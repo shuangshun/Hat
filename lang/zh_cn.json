@@ -1,9 +1,9 @@
 {
 	"hat.help": "将手中的物品戴到头上",
-	"hat.success": "你获得了新的帽子",
 	"hat.on_cooldown": "冷却中...",
+	"hat.use_in_player": "请以玩家身份执行",
+	"hat.required_permission": "权限不足",
 	"hat.hand_is_empty": "手上不能为空",
 	"hat.too_many_items": "不支持堆叠潜影盒或附魔书",
-	"hat.use_in_player": "请以玩家身份执行",
-	"hat.required_permission": "权限不足"
+	"hat.success": "你获得了新的帽子"
 }

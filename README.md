@@ -1,5 +1,3 @@
-[![](https://socialify.git.ci/shuangshun/Hat/image?description=1&font=Raleway&forks=1&issues=1&language=1&name=1&owner=1&pattern=Circuit%20Board&pulls=1&stargazers=1&theme=Auto)](https://github.com/shuangshun/Hat)
-
 # Hat
 
 [![](https://img.shields.io/github/v/release/shuangshun/Hat)](https://github.com/shuangshun/Hat/releases)
@@ -33,3 +31,8 @@
     "cooldown": 3 // 默认为 3 秒
 }
 ```
+
+------
+
+> [!Note]
+> 注意! 本插件仅适用于[1.17+](https://zh.minecraft.wiki/w/%E5%91%BD%E4%BB%A4/item#%E5%8E%86%E5%8F%B2)
