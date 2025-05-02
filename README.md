@@ -4,35 +4,30 @@
 [![](https://shields.io/github/downloads/shuangshun/Hat/total)](https://github.com/MrXiaoM/shuangshun/Hat)
 [![](https://img.shields.io/github/stars/shuangshun/Hat)](https://github.com/shuangshun/Hat)
 
-提供一个命令 `!!hat` , 允许玩家将手上的物品戴到头上
+Provides a command `!!hat`, allowing players to wear items on their heads.
 
-------
+---
 
-## 使用
+## Usage
 
-- 安装前置 [Minecraft Data API](https://github.com/Fallen-Breath/MinecraftDataAPI)
+- Install the plugin and all required dependencies.
+- Hold any item in your hand and enter the `!!hat` command in the game.
 
-- 安装 [Releases](https://github.com/shuangshun/Hat/releases/latest) 中的最新发行版
+## Configuration Explanation
 
-- 重启服务端或使用 `!!MCDR plugin reloadall` 命令重载所有插件
+- `permission` sets the minimum permission level required to use the `!!hat` command.
+> Only integer values are allowed. For details, please refer to [Permission Overview](https://docs.mcdreforged.com/en/latest/permission.html#overview).
 
-- 在游戏内拿着任意物品输入 `!!hat` 命令
-
-## 配置说明
-
-- `permission` 设置能够使用 `!!hat` 命令的最低权限等级
-> 仅允许输入一个整数值, 详细请看 [权限概览](https://docs.mcdreforged.com/zh-cn/latest/permission.html#overview)
-
-- `cooldown` 设置使用 `!!hat` 命令的冷却时间(单位: 秒)
+- `cooldown` sets the cooldown time for using the `!!hat` command (unit: seconds).
 
 ```json5
 {
-    "permission": 1, // 默认为 1 , 即普通玩家
-    "cooldown": 3 // 默认为 3 秒
+    "permission": 1, // Default is 1, regular player
+    "cooldown": 3 // Default is 3 seconds
 }
 ```
 
 ------
 
 > [!Note]
-> 注意! 本插件仅适用于 [1.17](https://zh.minecraft.wiki/w/%E5%91%BD%E4%BB%A4/item#%E5%8E%86%E5%8F%B2)~1.21.1
+> Notice! This plugin is only applicable for [1.17+](https://minecraft.wiki/w/Commands/item#History)
