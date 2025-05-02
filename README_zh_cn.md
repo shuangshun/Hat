@@ -4,6 +4,8 @@
 [![](https://shields.io/github/downloads/shuangshun/Hat/total)](https://github.com/MrXiaoM/shuangshun/Hat)
 [![](https://img.shields.io/github/stars/shuangshun/Hat)](https://github.com/shuangshun/Hat)
 
+[English](README.md) | **中文**
+
 提供一个命令 `!!hat` , 允许玩家将手上的物品戴到头上
 
 ------

@@ -4,6 +4,8 @@
 [![](https://shields.io/github/downloads/shuangshun/Hat/total)](https://github.com/MrXiaoM/shuangshun/Hat)
 [![](https://img.shields.io/github/stars/shuangshun/Hat)](https://github.com/shuangshun/Hat)
 
+**English** | [中文](README_zh_cn.md)
+
 Provides a command `!!hat`, allowing players to wear items on their heads.
 
 ---
