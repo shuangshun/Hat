@@ -2,8 +2,8 @@ import time
 import minecraft_data_api as api
 
 from mcdreforged.api.all import *
-from Hat.hat.config import *
-from Hat.hat.utils import *
+from hat.config import *
+from hat.utils import *
 
 
 last_execution_time = {}
