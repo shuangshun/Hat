@@ -6,7 +6,7 @@
 
 **English** | [中文](README_zh_cn.md)
 
-Provides a command `!!hat`, allowing players to wear items on their heads
+Provides a command `!!hat`, allowing players to wear items on their head
 
 ---
 
