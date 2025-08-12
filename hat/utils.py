@@ -11,9 +11,10 @@ def tr(key, *args) -> str:
     return ServerInterface.get_instance().tr(f"{PLUGIN_METADATA.id}.{key}", *args)
 
 
-def get_data_ver() -> int:
+def get_data_ver(server: PluginServerInterface) -> int:
     try:
-        level = nbtlib.load('server/world/level.dat').get('Data')
+        working_directory = server.get_mcdr_config()['working_directory']
+        level = nbtlib.load(f'{working_directory}/world/level.dat').get('Data')
         data_version = level['DataVersion']
         return int(data_version)
     except KeyError:

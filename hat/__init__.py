@@ -83,7 +83,7 @@ def register_commands_and_help(server: PluginServerInterface):
 def on_load(server: PluginServerInterface, old):
     global config, game_ver
     config = server.load_config_simple(ConfigFilePath, target_class=Config, in_data_folder=False)
-    game_ver = get_data_ver()
+    game_ver = get_data_ver(server)
 
     if game_ver < 2714 or game_ver == -1:
         server.logger.warning(tr('unsupported_ver'))
