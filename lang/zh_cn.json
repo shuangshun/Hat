@@ -6,5 +6,6 @@
 	"hat.hand_is_empty": "手上不能为空",
 	"hat.too_many_items": "不支持堆叠潜影盒或附魔书",
 	"hat.success": "你获得了新的帽子",
+	"hat.get_ver_fail": "获取游戏版本失败",
 	"hat.unsupported_ver": "不支持的版本, 请使用不低于21w19a的游戏版本"
 }

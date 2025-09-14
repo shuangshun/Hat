@@ -31,7 +31,7 @@ def hat(server: ServerInterface, src: CommandSource):
             return
 
         inventory = api.get_player_info(player_name, 'Inventory')
-        if game_ver >= 4063:
+        if data_ver >= 4063:
             equipment = api.get_player_info(player_name, 'equipment.head', timeout=0.2)
             if equipment is not None:
                 equipment['Slot'] = 103
@@ -81,12 +81,15 @@ def register_commands_and_help(server: PluginServerInterface):
 
 
 def on_load(server: PluginServerInterface, old):
-    global config, game_ver
+    global config, data_ver
     config = server.load_config_simple(ConfigFilePath, target_class=Config, in_data_folder=False)
-    game_ver = get_data_ver(server)
+    data_ver = get_data_ver(server)
 
-    if game_ver < 2714 or game_ver == -1:
-        server.logger.warning(tr('unsupported_ver'))
+    if data_ver < 2714:
+        if data_ver == -1:
+            server.logger.warning(tr('get_ver_fail'))
+        else:
+            server.logger.warning(tr('unsupported_ver'))
         server.unload_plugin('hat')
         return
 

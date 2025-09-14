@@ -17,7 +17,7 @@ def get_data_ver(server: PluginServerInterface) -> int:
         level = nbtlib.load(f'{working_directory}/world/level.dat').get('Data')
         data_version = level['DataVersion']
         return int(data_version)
-    except KeyError:
+    except Exception:
         return -1
 
 
@@ -36,29 +36,12 @@ def convert_ordered_dict_to_dict(data):
 
 
 def parse_components(data):
-    def transform(data, is_top_level=True, is_top_level_key=False):
-        if isinstance(data, dict):
-
-            components = []
-            for k, v in data.items():
-                if is_top_level and not is_top_level_key:
-                    components.append(f'{k}={json.dumps(v, ensure_ascii=False)}')
-
-                else:
-                    components.append(f'"{k}": {json.dumps(v, ensure_ascii=False)}')
-            return '{' + ', '.join(components) + '}'
-
-        elif isinstance(data, list):
-            return '[' + ', '.join(json.dumps(item, ensure_ascii=False) for item in data) + ']'
-
-        else:
-            if isinstance(data, (int, float)):
-                return f'{data}'
-
-            return json.dumps(data, ensure_ascii=False)
-
     try:
-        transformed_data = transform(data)
+        components = []
+        for k, v in data.items():
+            components.append(f'{k}={json.dumps(v, ensure_ascii=False)}')
+
+        transformed_data = '{' + ', '.join(components) + '}'
         head_slot_tag = f'[{transformed_data[1:-1]}]'.replace('minecraft:', '')
         return head_slot_tag
     except Exception as e:
