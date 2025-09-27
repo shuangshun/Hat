@@ -1,3 +1,4 @@
+import io
 import json
 import nbtlib
 
@@ -14,7 +15,22 @@ def tr(key, *args) -> str:
 def get_data_ver(server: PluginServerInterface) -> int:
     try:
         working_directory = server.get_mcdr_config()['working_directory']
-        level = nbtlib.load(f'{working_directory}/world/level.dat').get('Data')
+        with io.open(f"{working_directory}/server.properties", "rt") as prop_file:
+            while True:
+                line = prop_file.readline()
+                if line == "":
+                    raise KeyError("level-name not found")
+
+                if line.startswith('#'):
+                    continue
+
+                key, val = line.split('=')
+                if key.strip() != "level-name":
+                    continue
+
+                level_name = val.strip()
+                break
+        level = nbtlib.load(f'{working_directory}/{level_name}/level.dat').get('Data')
         data_version = level['DataVersion']
         return int(data_version)
     except Exception:
