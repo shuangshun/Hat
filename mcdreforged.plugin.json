@@ -1,6 +1,6 @@
 {
 	"id": "hat",
-	"version": "1.1.7",
+	"version": "1.1.8",
 	"name": "Hat",
 	"description": {
 		"en_us": "Equip the item in your hand on your head",
@@ -8,7 +8,8 @@
 	},
 	"author": [
 		"shuangshun",
-		"Fallen_Breath"
+		"Fallen_Breath",
+		"Hatsushigure"
 	],
 	"resources": [
 		"lang"
