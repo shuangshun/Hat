@@ -6,6 +6,7 @@
 	"hat.hand_is_empty": "Hands cannot be empty",
 	"hat.too_many_items": "Does not support stacking Shulker Boxes or Enchanted Books",
 	"hat.success": "You have obtained a new hat",
+	"hat.get_level_name_fail": "Failed to get level-name, trying to use default value",
 	"hat.get_ver_fail": "Failed to get game version",
 	"hat.unsupported_ver": "Unsupported version. Please use a game version no lower than 21w19a"
 }

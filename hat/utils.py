@@ -14,10 +14,23 @@ def tr(key, *args) -> str:
 def get_data_ver(server: PluginServerInterface) -> int:
     try:
         working_directory = server.get_mcdr_config()['working_directory']
-        level = nbtlib.load(f'{working_directory}/world/level.dat').get('Data')
+        with open(f'{working_directory}/server.properties', 'rt') as props:
+            for line in props:
+                line = line.strip()
+                if not line.startswith('level-name='):
+                    continue
+
+                level_name = line.split('=', 1)[1]
+                break
+            else:
+                level_name = 'world'
+                server.logger.warning(tr('get_level_name_fail'))
+
+        level = nbtlib.load(f'{working_directory}/{level_name}/level.dat').get('Data')
         data_version = level['DataVersion']
         return int(data_version)
-    except Exception:
+    except Exception as e:
+        server.logger.error(e)
         return -1
 
 
