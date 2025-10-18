@@ -31,5 +31,5 @@ Provides a command `!!hat`, allowing players to wear items on their head
 
 ------
 
-> [!Note]
+> [!Warning]
 > Notice! This plugin is only applicable for [1.17+](https://minecraft.wiki/w/Commands/item#History)
