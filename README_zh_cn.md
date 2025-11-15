@@ -1,8 +1,8 @@
 # Hat
 
-[![](https://img.shields.io/github/v/release/shuangshun/Hat)](https://github.com/shuangshun/Hat/releases)
+[![](https://shields.io/github/v/release/shuangshun/Hat)](https://github.com/shuangshun/Hat/releases)
 [![](https://shields.io/github/downloads/shuangshun/Hat/total)](https://github.com/MrXiaoM/shuangshun/Hat)
-[![](https://img.shields.io/github/stars/shuangshun/Hat)](https://github.com/shuangshun/Hat)
+[![](https://shields.io/github/stars/shuangshun/Hat)](https://github.com/shuangshun/Hat)
 
 [English](README.md) | **中文**
 
