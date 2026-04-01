@@ -14,7 +14,7 @@ def tr(key, *args) -> str:
 def get_data_ver(server: PluginServerInterface) -> int:
     try:
         working_directory = server.get_mcdr_config()['working_directory']
-        with open(f'{working_directory}/server.properties', 'rt') as props:
+        with open(f'{working_directory}/server.properties', 'rt', encoding="utf-8") as props:
             for line in props:
                 line = line.strip()
                 if not line.startswith('level-name='):
