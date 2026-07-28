@@ -44,7 +44,10 @@ def hat(server: ServerInterface, src: CommandSource):
             src.reply(RText(tr('too_many_items'), RColor.red))
             return
 
-        server.execute(f'item replace entity {player_name} armor.head from entity {player_name} hotbar.{selected_item_slot}')
+        server.execute(build_item_replace_cmd(
+            player_name, 'armor.head',
+            source_slot=f'hotbar.{selected_item_slot}'
+        ))
 
         for item in inventory:
             if item['Slot'] == 103:
@@ -57,10 +60,16 @@ def hat(server: ServerInterface, src: CommandSource):
                     key = 'tag' if 'tag' in item else 'components'
                     head_slot_tag = str(parse_head_slot_data(item, key))
 
-                server.execute(f'item replace entity {player_name} hotbar.{selected_item_slot} with {head_slot_id}{head_slot_tag} {head_slot_count}')
+                server.execute(build_item_replace_cmd(
+                    player_name, f'hotbar.{selected_item_slot}',
+                    item_id=head_slot_id, item_tag=head_slot_tag, count=head_slot_count
+                ))
                 break
         else:
-            server.execute(f'item replace entity {player_name} hotbar.{selected_item_slot} with air')
+            server.execute(build_item_replace_cmd(
+                player_name, f'hotbar.{selected_item_slot}',
+                item_id='air'
+            ))
 
         src.reply(RText(tr('success'), RColor.green))
 

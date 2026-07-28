@@ -14,7 +14,7 @@ def tr(key, *args) -> str:
 def get_data_ver(server: PluginServerInterface) -> int:
     try:
         working_directory = server.get_mcdr_config()['working_directory']
-        with open(f'{working_directory}/server.properties', 'rt', encoding="utf-8") as props:
+        with open(f'{working_directory}/server.properties', 'rt', encoding='utf-8') as props:
             for line in props:
                 line = line.strip()
                 if not line.startswith('level-name='):
@@ -50,12 +50,8 @@ def convert_ordered_dict_to_dict(data):
 
 def parse_components(data):
     try:
-        components = []
-        for k, v in data.items():
-            components.append(f'{k}={json.dumps(v, ensure_ascii=False)}')
-
-        transformed_data = '{' + ', '.join(components) + '}'
-        head_slot_tag = f'[{transformed_data[1:-1]}]'.replace('minecraft:', '')
+        components = ', '.join(f'{k}={json.dumps(v, ensure_ascii=False)}' for k, v in data.items())
+        head_slot_tag = f'[{components}]'.replace('minecraft:', '')
         return head_slot_tag
     except Exception as e:
         raise ValueError(f"Error converting data: {e}") from e
@@ -76,3 +72,20 @@ def parse_head_slot_data(item, type):
 
     except TypeError as e:
         raise TypeError(f'Error in parsing process: {e}') from e
+
+
+def build_item_replace_cmd(
+        target_entity, target_slot, *,
+        source_slot = None,
+        item_id = None, item_tag = "", count = None) -> str:
+    if source_slot is not None:
+        return f'item replace entity {target_entity} {target_slot} from entity {target_entity} {source_slot}'
+
+    elif item_id is not None:
+        cmd = f'item replace entity {target_entity} {target_slot} with {item_id}{item_tag}'
+        if count is not None:
+            cmd += f' {count}'
+        return cmd
+
+    else:
+        raise ValueError("Either source_slot or item_id must be provided")
